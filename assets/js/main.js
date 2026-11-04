@@ -5,6 +5,7 @@
   /* ---- AYARLAR (kendi bilgilerinle değiştir) ---- */
   var EMAIL = 'info@dablabs.net';      // yedek: anahtar yoksa / gönderim başarısız olursa mailto (ImprovMX → Gmail)
   var WEB3FORMS_KEY = '671576d2-97dd-4465-af27-1759730d8892'; // Web3Forms Access Key
+  var FACEBOOK = 'https://www.facebook.com/profile.php?id=61595501375789'; // boş bırakırsan Facebook ikonları gizlenir
   var WHATSAPP = '';                   // örn: '905551234567' (boş bırakırsan WhatsApp butonu gizlenir)
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -129,6 +130,9 @@
         .then(function () { btn.disabled = false; btn.textContent = btnText; });
     });
   }
+  $$('[data-fb]').forEach(function (a) {
+    if (FACEBOOK) { a.href = FACEBOOK; } else { a.style.display = 'none'; }
+  });
   var wa = $('[data-wa]');
   if (wa) {
     if (WHATSAPP) { wa.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Merhaba, web sitesi/yazılım projesi için bilgi almak istiyorum.'); }

@@ -198,6 +198,12 @@ h2{font-weight:800;font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing
 .ftr img{height:70px;width:auto;margin-bottom:18px}
 .ftr p{color:var(--mut);font-size:15px;max-width:340px}
 .ftr h3{font:600 14px var(--mono);color:var(--cyan);margin-bottom:16px;letter-spacing:.02em}
+.si{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.social a{height:42px;min-width:42px;padding:0 11px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line2);color:var(--cyan);font-size:14.5px;font-weight:600;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.social a span{color:#cfe0ff}
+.social a:hover{background:rgba(10,149,255,.14);border-color:var(--cyan);color:#fff;transform:translateY(-2px)}
+.social a:hover span{color:#fff}
 .ftr li{margin-bottom:10px}.ftr li a{color:#aebcd9;font-size:15.5px;transition:color .2s}.ftr li a:hover{color:#fff}
 .copy{margin-top:54px;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--dim);font-size:14px}
 
