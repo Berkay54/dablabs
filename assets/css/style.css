@@ -5,7 +5,7 @@
 :root{
   --bg:#040812;--bg2:#070d1d;--card:#0a1226;--card2:#0d1731;
   --line:rgba(120,165,255,.14);--line2:rgba(120,165,255,.28);
-  --txt:#e9effc;--mut:#94a5c6;--dim:#667796;
+  --txt:#e9effc;--mut:#94a5c6;--dim:#7787a8;
   --blue:#0a95ff;--blue2:#2f5bff;--cyan:#35d0ff;
   --grad:linear-gradient(100deg,#35d0ff,#0a95ff 45%,#4d6bff);
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
