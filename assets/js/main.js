@@ -3,7 +3,8 @@
   'use strict';
 
   /* ---- AYARLAR (kendi bilgilerinle değiştir) ---- */
-  var EMAIL = 'info@dablabs.net';      // iletişim formunun gideceği e-posta
+  var EMAIL = 'info@dablabs.net';      // yedek: anahtar yoksa / gönderim başarısız olursa mailto (ImprovMX → Gmail)
+  var WEB3FORMS_KEY = '671576d2-97dd-4465-af27-1759730d8892'; // Web3Forms Access Key
   var WHATSAPP = '';                   // örn: '905551234567' (boş bırakırsan WhatsApp butonu gizlenir)
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -77,16 +78,55 @@
     }
   }
 
-  /* iletişim formu → e-posta */
+  /* iletişim formu → Web3Forms (anahtar yoksa mailto) */
   var form = $('#teklif-formu');
   if (form) {
+    var status = $('#form-durum'), btn = $('button[type="submit"]', form), btnText = btn.textContent;
+    var setStatus = function (msg, cls) { status.textContent = msg; status.className = 'fine' + (cls ? ' ' + cls : ''); };
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var v = function (n) { return (form.elements[n] && form.elements[n].value || '').trim(); };
+
+      if (!v('ad')) { setStatus('Lütfen adınızı yazın.', 'err'); form.elements.ad.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('eposta'))) { setStatus('Lütfen geçerli bir e-posta adresi yazın.', 'err'); form.elements.eposta.focus(); return; }
+      if (form.elements.botcheck && form.elements.botcheck.checked) { return; }
+
       var subject = 'Teklif talebi: ' + (v('hizmet') || 'Genel');
       var body = 'Ad Soyad: ' + v('ad') + '\nE-posta: ' + v('eposta') + '\nTelefon: ' + v('telefon') +
         '\nHizmet: ' + v('hizmet') + '\n\nProje hakkında:\n' + v('mesaj');
-      window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      var mailto = function () {
+        window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      };
+
+      if (!WEB3FORMS_KEY) { mailto(); return; }
+
+      btn.disabled = true; btn.textContent = 'Gönderiliyor...'; setStatus('');
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: subject,
+          from_name: 'DAB Labs Web Sitesi',
+          replyto: v('eposta'),
+          'Ad Soyad': v('ad'),
+          'E-posta': v('eposta'),
+          'Telefon': v('telefon') || '-',
+          'Hizmet': v('hizmet'),
+          'Mesaj': v('mesaj') || '-'
+        })
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (!res.success) { throw new Error(res.message || 'Gönderilemedi'); }
+          form.reset();
+          setStatus('Teşekkürler! Talebiniz bize ulaştı, en kısa sürede dönüş yapacağız.', 'ok');
+        })
+        .catch(function () {
+          setStatus('Bir sorun oluştu. Lütfen tekrar deneyin ya da ' + EMAIL + ' adresine yazın.', 'err');
+        })
+        .then(function () { btn.disabled = false; btn.textContent = btnText; });
     });
   }
   var wa = $('[data-wa]');

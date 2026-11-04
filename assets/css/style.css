@@ -187,6 +187,10 @@ h2{font-weight:800;font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing
 .f select option{background:#070e1e}
 .f .btn{width:100%}
 .fine{font-size:13.5px;color:var(--dim);margin-top:14px}
+.fine.ok{color:#3ecf8e}
+.fine.err{color:#ff6b6b}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
+.f button[disabled]{opacity:.6;cursor:wait}
 
 /* footer */
 .ftr{border-top:1px solid var(--line);padding:70px 0 40px;background:var(--bg2)}
