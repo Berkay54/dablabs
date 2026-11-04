@@ -143,6 +143,11 @@ h2{font-weight:800;font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing
 .v-atlas{background:radial-gradient(520px 300px at 80% 20%,#2c78bd,transparent 60%),linear-gradient(130deg,#07142a,#123c68);color:#fff}.v-atlas .bt{background:#f08a00;color:#fff}
 .v-pizza{background:radial-gradient(520px 300px at 80% 25%,#e0541e,transparent 62%),linear-gradient(150deg,#2a0c06,#7a2410);color:#fff}.v-pizza h4{text-transform:uppercase}.v-pizza .bt{background:#ffc24a;color:#2a0c06}
 .v-oto{background:radial-gradient(480px 280px at 78% 55%,#e0212b,transparent 58%),linear-gradient(150deg,#050505,#150508);color:#fff}.v-oto h4{text-transform:uppercase}.v-oto .bt{background:#e0212b;color:#fff}
+.work-a{display:block;color:inherit;text-decoration:none;height:100%}
+.work-a:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px;border-radius:22px}
+.shot-u{margin-left:10px;font:500 11px var(--mono);color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot-img{display:block;width:100%;height:270px;object-fit:cover;object-position:top left;transition:transform .6s}
+.work:hover .shot-img{transform:scale(1.03)}
 .work-i{padding:22px 26px 28px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
 .work-i h3{font-size:20px;font-weight:800;letter-spacing:-.01em}
 .work-i p{color:var(--mut);font-size:15px;margin-top:4px}
