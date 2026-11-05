@@ -41,8 +41,8 @@ Bu, DAB Labs'ın tanıtım sitesi. Tek sayfalık, statik ve Türkçe bir site; w
 - Gerçek projeler en üstte, "Canlı demo ↗" etiketli, tıklanabilir kartlar olarak duruyor (`<a class="work-a">`, yeni sekmede açılır). Altta CSS ile çizilmiş "Konsept çalışma" kartları var.
 - Yeni proje eklerken: headless Edge ile 1280×760 ekran görüntüsü al, 1040 px genişliğe küçültüp JPEG (kalite 80) olarak `assets/img/works/` klasörüne kaydet. Kartı son canlı demonun arkasına ekle.
 - Kartlardaki `style="--d:.1s"` gecikmesi sırayla bir kartta var, bir kartta yok. Kart eklendikten sonra bu sıra yeniden düzenlenmeli.
-- Kart sayısı çift olursa düzen bozulmaz (2 sütunlu grid). Gerçek projeler arttıkça konsept kartlar kaldırılıyor. Pizzacı ve otomotiv kartları kaldırıldı. Kalan konseptler: kahve, lojistik (lojistik, Instagram'daki önce/sonra reeliyle bağlantılı; mümkünse en son kaldırılmalı).
-- Şimdiye kadar eklenen canlı demolar: Veteriner Kliniği (veteriner-klinik-demo.vercel.app), Velora Atelier (velora-lilac-ten.vercel.app), ModaLife e-ticaret (ecommerce-kappa-lyart.vercel.app), Parla Diş Kliniği (parla-ecru.vercel.app, kaynak: github.com/Berkay54/parla).
+- Kart sayısı çift olursa düzen bozulmaz (2 sütunlu grid). Gerçek projeler arttıkça konsept kartlar kaldırılıyor. Pizzacı, otomotiv ve kahve kartları kaldırıldı. Kalan konsept: lojistik (lojistik, Instagram'daki önce/sonra reeliyle bağlantılı; mümkünse en son kaldırılmalı).
+- Şimdiye kadar eklenen canlı demolar: Veteriner Kliniği (veteriner-klinik-demo.vercel.app), Velora Atelier (velora-lilac-ten.vercel.app), ModaLife e-ticaret (ecommerce-kappa-lyart.vercel.app), Parla Diş Kliniği (parla-ecru.vercel.app, kaynak: github.com/Berkay54/parla), Ne Kadar Uzak? sinematik scroll sitesi (uzay-nine.vercel.app, kaynak: github.com/Berkay54/uzay).
 - Linkler herkese açık production adresi olmalı. `proje-xxxx-berkay54.vercel.app` biçimindeki önizleme linkleri Vercel girişi istiyor, ziyaretçi siteyi göremez. Eklemeden önce `curl -I` ile 200 döndüğünü kontrol et.
 
 ## Yerelde çalıştırma
