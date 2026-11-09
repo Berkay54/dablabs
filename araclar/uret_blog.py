@@ -58,6 +58,7 @@ HEAD = '''<!doctype html>
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-600.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-800.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/css/style.css">
 
