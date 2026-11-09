@@ -257,3 +257,71 @@ h2{font-weight:800;font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing
   .ftr-g{grid-template-columns:1fr}
   .shot-v{height:230px}
 }
+
+/* hizmet sayfaları */
+.more{display:inline-flex;gap:6px;margin-top:20px;font:600 14px var(--mono);color:var(--cyan);transition:gap .25s}
+.more:hover{gap:10px;color:#fff}
+.lnk{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
+.phero{position:relative;padding:160px 0 80px;overflow:hidden}
+.phero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 80% at 70% 30%,#000 10%,transparent 72%);-webkit-mask-image:radial-gradient(ellipse 70% 80% at 70% 30%,#000 10%,transparent 72%);opacity:.6}
+.phero .wrap{position:relative}
+.phero h1{max-width:960px}
+.phero .lead{max-width:720px}
+.crumb{display:flex;flex-wrap:wrap;gap:8px;font:500 13px var(--mono);color:var(--dim);margin-bottom:22px}
+.crumb a{color:var(--mut);transition:color .2s}.crumb a:hover{color:#fff}
+.crumb [aria-current]{color:#c4d1ec}
+.card .id{display:block;font:600 13px var(--mono);color:var(--cyan);margin-bottom:18px}
+.split{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+.prose p{color:var(--mut);font-size:17.5px;margin-bottom:18px;max-width:640px}
+.prose p:last-child{margin-bottom:0}
+.chk li{position:relative;padding:15px 18px 15px 48px;margin-bottom:10px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025);color:#cfdaf2;font-size:16px}
+.chk li::before{content:"✓";position:absolute;left:19px;top:15px;color:var(--cyan);font-weight:800}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card.wk{padding:0;display:block}
+.wk img{width:100%;height:240px;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+.wk-b{padding:24px 28px 28px}
+.wk h3{font-size:20px}
+.wk .chip{display:inline-block;margin-top:16px}
+.cta.solo{grid-template-columns:1fr;text-align:center}
+.cta.solo .cta-l{padding:64px 54px}
+.cta.solo .sub{margin-inline:auto}
+.cta.solo .ctas{justify-content:center}
+.others{margin-top:56px;text-align:center}
+.others h2{font-size:14px;margin:0 0 18px;letter-spacing:.02em}
+.others ul{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.others a{display:block;font:500 14px var(--mono);color:#c4d1ec;padding:10px 16px;border:1px solid var(--line2);border-radius:999px;transition:.25s}
+.others a:hover{color:#fff;border-color:var(--blue);background:rgba(10,149,255,.12)}
+.nav a[aria-current]{color:#fff}
+@media (max-width:1100px){.split{grid-template-columns:1fr;gap:32px}}
+@media (max-width:640px){
+  .phero{padding:124px 0 48px}
+  .grid2{grid-template-columns:1fr}
+  .wk img{height:190px}
+  .cta.solo .cta-l{padding:40px 22px}
+}
+
+/* vaka sayfaları */
+.case-shot{margin-top:-20px}
+.case-shot .shot{display:block;margin:0;border-radius:18px;border-bottom:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.case-shot .shot-img{height:auto;aspect-ratio:1040/618}
+.case-shot .shot:hover .shot-img{transform:scale(1.015)}
+.note{margin-top:16px;font-size:14.5px;color:var(--dim);text-align:center}
+.note strong{color:var(--mut)}
+.split.top{align-items:start}
+.kv{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,var(--card2),var(--card));padding:30px 30px 32px}
+.kv dl div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.kv dt{color:var(--dim);font:500 13px var(--mono);padding-top:3px}
+.kv dd{color:#dbe6ff;text-align:right}
+.kv h3{font:600 13px var(--mono);color:var(--cyan);margin-top:24px}
+.kv .tags{margin-top:12px}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.pn a{display:block;padding:22px 26px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.02);transition:.25s}
+.pn a:last-child{text-align:right}
+.pn a:hover{border-color:var(--line2);background:rgba(10,149,255,.07)}
+.pn span{display:block;font:500 13px var(--mono);color:var(--cyan);margin-bottom:6px}
+.pn b{font-size:19px;font-weight:800;letter-spacing:-.01em}
+@media (max-width:640px){
+  .case-shot{margin-top:0}
+  .kv{padding:24px 22px}
+  .pn{grid-template-columns:1fr}.pn a:last-child{text-align:left}
+}

@@ -1,6 +1,6 @@
 # DAB Labs — dablabs.net
 
-Bu, DAB Labs'ın tanıtım sitesi. Tek sayfalık, statik ve Türkçe bir site; web tasarım ve yazılım hizmetleri tanıtılıyor. Build adımı ve framework yok: düz HTML, CSS ve vanilla JS. Site Vercel'de yayında.
+Bu, DAB Labs'ın tanıtım sitesi. Statik ve Türkçe bir site (ana sayfa + 6 hizmet sayfası + 8 vaka sayfası); web tasarım ve yazılım hizmetleri tanıtılıyor. Build adımı ve framework yok: düz HTML, CSS ve vanilla JS. Site Vercel'de yayında.
 
 Çalışırken iki bilgisayar kullanılıyor (ev ve iş). Claude konuşmaları bilgisayarlar arasında eşitlenmiyor, bu yüzden kalıcı bağlam bu dosyada ve git geçmişinde tutuluyor.
 
@@ -11,7 +11,11 @@ Bu, DAB Labs'ın tanıtım sitesi. Tek sayfalık, statik ve Türkçe bir site; w
 - `assets/js/main.js`: tek IIFE. İçinde header scroll, mobil menü, `.rv` scroll reveal, kart ışığı efekti, hero terminal animasyonu, iletişim formu ve sosyal bağlantılar var.
 - `assets/fonts/`: Inter (400/600/800) dosyaları sitenin kendi sunucusunda. Harici font kullanılmıyor, CSP buna izin vermiyor.
 - `assets/img/`: logolar, favicon'lar, PWA ikonları, og-image.
-- `vercel.json`: güvenlik başlıkları ve önbellek ayarları.
+- Hizmet sayfaları: `kurumsal-web-sitesi/`, `e-ticaret-sitesi/`, `kisisel-web-sitesi/`, `mobil-uygulama-gelistirme/`, `ozel-yazilim/`, `site-yenileme-ve-seo/` klasörlerinde `index.html`. Adresler sondaki `/` ile (`/kurumsal-web-sitesi/`); `vercel.json` içinde `trailingSlash: true` var. Bu sayfalarda tüm yollar mutlak (`/assets/...`, `/#iletisim`). Her sayfada BreadcrumbList, Service ve FAQPage JSON-LD'si var. Sayfa stilleri `style.css` sonundaki "hizmet sayfaları" bölümünde.
+- Vaka sayfaları: `calismalar/<proje>/index.html` (kartaltepe-makina, veteriner-klinigi, velora-atelier, modalife, parla-dis-klinigi, ne-kadar-uzak, kervan-lojistik, kozhane). Her biri fikir, proje künyesi, öne çıkan özellikler, canlı demo linki ve önceki/sonraki gezinmesi içeriyor. JSON-LD: BreadcrumbList + CreativeWork. Stiller `style.css` sonundaki "vaka sayfaları" bölümünde.
+- **Tüm çalışmalar konsept, henüz gerçek müşteri yok.** Vaka sayfalarında ve ana sayfada bu açıkça belirtiliyor ("konsept çalışma" etiketi ve not). Gerçek müşteri gelene kadar müşteri yorumu, müşteri adı veya "müşterimiz için yaptık" gibi ifadeler yazılmaz.
+- **Header ve footer 15 dosyada ayrı ayrı duruyor** (ortak şablon yok). Menüde veya footer'da değişiklik yapılırsa ana sayfa, 6 hizmet ve 8 vaka sayfasının hepsi güncellenmeli. Yeni sayfa eklenirse `sitemap.xml`'e de eklenmeli.
+- `vercel.json`: güvenlik başlıkları, önbellek ve sondaki `/` ayarı.
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`.
 
 ## Ayarlar (`assets/js/main.js` başındaki değişkenler)
@@ -38,7 +42,7 @@ Bu, DAB Labs'ın tanıtım sitesi. Tek sayfalık, statik ve Türkçe bir site; w
 
 ## Çalışmalar bölümü (`#calismalar`)
 
-- Gerçek projeler en üstte, "Canlı demo ↗" etiketli, tıklanabilir kartlar olarak duruyor (`<a class="work-a">`, yeni sekmede açılır). Altta CSS ile çizilmiş "Konsept çalışma" kartları var.
+- Kartlar "İncele →" etiketli ve sitenin içindeki vaka sayfasına (`/calismalar/<proje>/`) gidiyor; canlı demo linki vaka sayfasında. Yeni proje eklenince vaka sayfası da açılmalı ve `sitemap.xml`'e eklenmeli. Hizmet sayfalarındaki "Bu alandaki çalışmalarımız" kartları da vaka sayfalarına gidiyor. Altta CSS ile çizilmiş "Konsept çalışma" kartları var.
 - Yeni proje eklerken: headless Edge ile 1280×760 ekran görüntüsü al, 1040 px genişliğe küçültüp JPEG (kalite 80) olarak `assets/img/works/` klasörüne kaydet. Kartı son canlı demonun arkasına ekle.
 - Kartlardaki `style="--d:.1s"` gecikmesi sırayla bir kartta var, bir kartta yok. Kart eklendikten sonra bu sıra yeniden düzenlenmeli.
 - Kart sayısı çift olursa düzen bozulmaz (2 sütunlu grid). Gerçek projeler arttıkça konsept kartlar kaldırılıyor. Pizzacı, otomotiv ve kahve kartları kaldırıldı. Son konsept kart (Atlas Lojistik, Instagram'daki önce/sonra reeliyle bağlantılıydı) gerçek Kervan Lojistik demosuyla değiştirildi; şu an konsept kart kalmadı. Yeni demo eklenirken kart sayısı çift kalacak şekilde ikişer ekle ya da başka bir düzen kararı ver.
@@ -47,6 +51,13 @@ Bu, DAB Labs'ın tanıtım sitesi. Tek sayfalık, statik ve Türkçe bir site; w
 - Şimdiye kadar eklenen canlı demolar: Kartaltepe Makina (kartaltepe.vercel.app, kaynak: github.com/Berkay54/kartaltepe; GSAP/Lenis ile animasyonlu sanayi sitesi, Instagram önce/sonra reelinin "sonrası"), Veteriner Kliniği (veteriner-klinik-demo.vercel.app), Velora Atelier (velora-lilac-ten.vercel.app), ModaLife e-ticaret (ecommerce-kappa-lyart.vercel.app), Parla Diş Kliniği (parla-ecru.vercel.app, kaynak: github.com/Berkay54/parla), Ne Kadar Uzak? sinematik scroll sitesi (uzay-nine.vercel.app, kaynak: github.com/Berkay54/uzay), Kervan Lojistik kurumsal sitesi (kervan-vert.vercel.app, kaynak: github.com/Berkay54/kervan), Közhane ocakbaşı kebap sitesi (kozhane.vercel.app, kaynak: github.com/Berkay54/kozhane; React + Vite, videolu bölümler).
 - 3D/WebGL içeren sitelerin ekran görüntüsünde headless Edge'e `--use-angle=swiftshader --enable-unsafe-swiftshader --virtual-time-budget=15000` ver; kısa bütçede giriş animasyonu bitmeden çekiliyor.
 - Linkler herkese açık production adresi olmalı. `proje-xxxx-berkay54.vercel.app` biçimindeki önizleme linkleri Vercel girişi istiyor, ziyaretçi siteyi göremez. Eklemeden önce `curl -I` ile 200 döndüğünü kontrol et.
+
+## SEO ve konum
+
+- Konum: Sakarya merkezli, Türkiye geneline online hizmet. Başlıkta, meta açıklamada, JSON-LD'de (`address`, `areaServed`), iletişim listesinde, footer'da ve SSS'de geçiyor.
+- Şehir şehir "X web tasarım" sayfaları **açılmayacak**. İçeriği aynı, yalnızca şehir adı değişen sayfaları Google "doorway page" sayıyor ve cezalandırıyor. Bir şehre özel sayfa ancak o şehirde gerçek müşteri ve proje olunca açılır.
+- SEO yol haritası (sırayla): 1) konum bilgisi (yapıldı), 2) her hizmete ayrı sayfa (yapıldı), 3) Google İşletme Profili (kullanıcı açtı; Maps linki henüz JSON-LD'ye eklenmedi), 4) çalışmaları vaka sayfalarına çevirme (yapıldı), 5) blog, 6) backlink, 7) İngilizce sürüm (`/en/`, hreflang ile).
+- Hizmet sayfalarında bilerek yazılmayanlar (henüz yapılmadığı için): belirli ödeme firması adları, Excel/CSV toplu ürün yükleme, sanal POS başvurusunda yol gösterme, PWA. Not: `github.com/Berkay54/ecommerce` reposunda iyzico sandbox entegrasyonu var; production'da yapılınca bunlar eklenebilir.
 
 ## Yerelde çalıştırma
 
