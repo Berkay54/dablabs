@@ -27,6 +27,7 @@ Sonra `git diff` ile değişiklikleri kontrol edin. Python 3 yeterli, ek paket g
 | `uret_hizmetler.py` | `/<hizmet>/` sayfaları + `sitemap.xml` |
 | `uret_calismalar.py` | `/calismalar/<proje>/` sayfaları |
 | `uret_blog.py` | `/blog/` ve `/blog/<yazi>/` sayfaları |
+| `uret_analiz.py` | `/ucretsiz-site-analizi/` sayfası (metinler dosyanın içinde) |
 | `uret_en.py` | `/en/` ana sayfa ve `/en/<service>/` sayfaları (EN header/footer bu dosyada) |
 | `uret.py` | Hepsini sırayla çalıştırır |
 

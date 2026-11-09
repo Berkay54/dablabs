@@ -117,7 +117,7 @@ POSTS = [
  <li>KVKK metni ve ticari bilgiler eksiksiz mi?</li>
  <li>Site telefonda hızlı ve düzgün açılıyor mu?</li>
 </ol>
-<p>Sitenizde bu maddelerden birkaçı eksikse, yeni bir site yerine mevcut sitenizi iyileştirmek de yeterli olabilir. Sitenizi bu açıdan birlikte incelemek isterseniz ücretsiz analiz için bize yazabilirsiniz.</p>
+<p>Sitenizde bu maddelerden birkaçı eksikse, yeni bir site yerine mevcut sitenizi iyileştirmek de yeterli olabilir. Sitenizi bu açıdan birlikte incelemek isterseniz <a href="/ucretsiz-site-analizi/">ücretsiz analiz</a> için bize yazabilirsiniz.</p>
 ''',
 },
 {
@@ -162,7 +162,7 @@ POSTS = [
 <p>Google, başka sitelerin size verdiği bağlantıları bir tür güven oyu olarak değerlendirir. Yeni bir sitenin hiç bağlantısı yoksa rekabetli aramalarda üst sıralara çıkması zordur. Sektörel rehberlere kayıt olmak, iş ortaklarınızın sitelerinde yer almak, sosyal medya profillerinize site bağlantısı eklemek ve faydalı içerikler üretmek bu konuda atabileceğiniz doğal adımlardır. Bağlantı satın almak ise Google kurallarına aykırıdır ve sitenize zarar verebilir.</p>
 
 <h2 id="sabir">Sonuç: teknik düzeltmeler hızlı, sıralama zaman ister</h2>
-<p>Dizinlenme ve teknik ayar sorunları genellikle hızlıca düzeltilebilir ve etkisi birkaç hafta içinde görülür. Rekabetli aramalarda üst sıralara çıkmak ise düzenli içerik üretimi ve zaman gerektirir; çoğunlukla birkaç ay sürer. Sitenizin hangi aşamada sorun yaşadığını öğrenmek isterseniz, ücretsiz site analizi için bize ulaşabilirsiniz.</p>
+<p>Dizinlenme ve teknik ayar sorunları genellikle hızlıca düzeltilebilir ve etkisi birkaç hafta içinde görülür. Rekabetli aramalarda üst sıralara çıkmak ise düzenli içerik üretimi ve zaman gerektirir; çoğunlukla birkaç ay sürer. Sitenizin hangi aşamada sorun yaşadığını öğrenmek isterseniz, <a href="/ucretsiz-site-analizi/">ücretsiz site analizi</a> için bize ulaşabilirsiniz.</p>
 ''',
 },
 {

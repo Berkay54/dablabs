@@ -23,6 +23,7 @@
       '<span class="t-p">→</span> <span class="t-b">https://your-site.com</span>'
     ],
     needName: 'Please enter your name.', needEmail: 'Please enter a valid email address.',
+    needSite: 'Please enter your website address.', lSite: 'Website', lTopics: 'Concerns',
     subject: 'Quote request: ', general: 'General', sending: 'Sending...',
     ok: 'Thank you! Your request has reached us and we will get back to you shortly.',
     err: 'Something went wrong. Please try again or email ',
@@ -43,6 +44,7 @@
       '<span class="t-p">→</span> <span class="t-b">https://musteri-siteniz.com.tr</span>'
     ],
     needName: 'Lütfen adınızı yazın.', needEmail: 'Lütfen geçerli bir e-posta adresi yazın.',
+    needSite: 'Lütfen web sitenizin adresini yazın.', lSite: 'Web sitesi', lTopics: 'Konular',
     subject: 'Teklif talebi: ', general: 'Genel', sending: 'Gönderiliyor...',
     ok: 'Teşekkürler! Talebiniz bize ulaştı, en kısa sürede dönüş yapacağız.',
     err: 'Bir sorun oluştu. Lütfen tekrar deneyin ya da şu adrese yazın: ',
@@ -124,33 +126,41 @@
 
       if (!v('ad')) { setStatus(T.needName, 'err'); form.elements.ad.focus(); return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('eposta'))) { setStatus(T.needEmail, 'err'); form.elements.eposta.focus(); return; }
+      if (form.elements.site && !v('site')) { setStatus(T.needSite, 'err'); form.elements.site.focus(); return; }
       if (form.elements.botcheck && form.elements.botcheck.checked) { return; }
 
-      var subject = T.subject + (v('hizmet') || T.general);
+      var hasSite = !!form.elements.site;
+      var topics = $$('input[name="konu"]:checked', form).map(function (x) { return x.value; }).join(', ');
+      var custom = form.getAttribute('data-subject');
+      var subject = custom ? custom + ': ' + v('site') : T.subject + (v('hizmet') || T.general);
       var body = T.lName + ": " + v("ad") + "\n" + T.lEmail + ": " + v("eposta") + "\n" + T.lPhone + ": " + v("telefon") +
         "\n" + T.lService + ": " + v("hizmet") + "\n\n" + T.lAbout + ":\n" + v("mesaj");
+      if (hasSite) { body = T.lSite + ': ' + v('site') + '\n' + T.lTopics + ': ' + (topics || '-') + '\n' + body; }
       var mailto = function () {
         window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       };
 
       if (!WEB3FORMS_KEY) { mailto(); return; }
 
+      var payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: subject,
+        from_name: T.from,
+        'Dil': EN ? 'English' : 'Türkçe',
+        replyto: v('eposta'),
+        'Ad Soyad': v('ad'),
+        'E-posta': v('eposta'),
+        'Telefon': v('telefon') || '-'
+      };
+      if (hasSite) { payload['Web sitesi'] = v('site'); payload['Konular'] = topics || '-'; }
+      else { payload['Hizmet'] = v('hizmet'); }
+      payload['Mesaj'] = v('mesaj') || '-';
+
       btn.disabled = true; btn.textContent = T.sending; setStatus('');
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: subject,
-          from_name: T.from,
-          'Dil': EN ? 'English' : 'Türkçe',
-          replyto: v('eposta'),
-          'Ad Soyad': v('ad'),
-          'E-posta': v('eposta'),
-          'Telefon': v('telefon') || '-',
-          'Hizmet': v('hizmet'),
-          'Mesaj': v('mesaj') || '-'
-        })
+        body: JSON.stringify(payload)
       })
         .then(function (r) { return r.json(); })
         .then(function (res) {

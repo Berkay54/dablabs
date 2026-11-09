@@ -12,7 +12,7 @@ sys.path.insert(0, HERE)
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
-for name in ('uret_calismalar', 'uret_blog', 'uret_hizmetler', 'uret_en'):
+for name in ('uret_calismalar', 'uret_blog', 'uret_analiz', 'uret_hizmetler', 'uret_en'):
     print('==', name)
     runpy.run_path(os.path.join(HERE, name + '.py'), run_name='__main__')
 print('Bitti. Değişiklikleri "git diff" ile kontrol edin.')

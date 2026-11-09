@@ -372,3 +372,16 @@ h2{font-weight:800;font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing
 .nav a.lang{font:600 13px var(--mono);padding:7px 10px;margin-left:6px;border:1px solid var(--line2);border-radius:9px;color:#c4d1ec}
 .nav a.lang:hover{border-color:var(--blue);background:rgba(10,149,255,.12);color:#fff}
 @media (max-width:860px){.nav a.lang{display:inline-block;margin:8px 0 0 12px;padding:9px 14px}}
+
+/* ücretsiz analiz formu */
+.f fieldset{border:0;padding:0;margin:0;min-width:0}
+.f legend{font:500 13px var(--mono);color:var(--mut);margin-bottom:10px;padding:0}
+.chk-pills{display:flex;flex-wrap:wrap;gap:8px}
+.chk-pills label{display:inline-block;margin:0;cursor:pointer;font:500 14px var(--sans);color:#c4d1ec}
+.chk-pills input{position:absolute;opacity:0;width:1px;height:1px;padding:0;margin:0}
+.chk-pills span{display:inline-block;padding:9px 14px;border:1px solid var(--line2);border-radius:999px;background:#070e1e;transition:.2s}
+.chk-pills label:hover span{border-color:var(--blue)}
+.chk-pills input:checked+span{border-color:var(--blue);background:rgba(10,149,255,.18);color:#fff}
+.chk-pills input:focus-visible+span{outline:2px solid var(--cyan);outline-offset:2px}
+.post a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
+.post a:hover{color:#fff}

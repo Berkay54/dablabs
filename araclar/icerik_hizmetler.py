@@ -214,7 +214,7 @@ PAGES = [
  'desc': 'Eski web sitenizi modern, hızlı ve Google uyumlu hale getiriyoruz. Ücretsiz site analizi, hız optimizasyonu ve teknik SEO. Sakarya merkezli, Türkiye geneline online hizmet.',
  'eyebrow': '// hizmetler / site-yenileme-ve-seo',
  'h1': 'Web Sitesi Yenileme ve <span class="grad">Teknik SEO</span>',
- 'lead': 'Eski görünen, yavaş açılan ya da Google’da çıkmayan sitenizi <strong>modern, hızlı ve arama motoru uyumlu</strong> hale getiriyoruz. İşe ücretsiz bir site analiziyle başlıyoruz.',
+ 'lead': 'Eski görünen, yavaş açılan ya da Google’da çıkmayan sitenizi <strong>modern, hızlı ve arama motoru uyumlu</strong> hale getiriyoruz. İşe <a class="lnk" href="/ucretsiz-site-analizi/">ücretsiz bir site analiziyle</a> başlıyoruz.',
  'features': [
   ('Ücretsiz site analizi', 'Sitenizin tasarımını, hızını, mobil uyumunu ve SEO durumunu inceleyip neyin düzeltilmesi gerektiğini anlatıyoruz.'),
   ('Yeniden tasarım', 'Markanıza uygun, güncel ve telefonda kusursuz görünen yeni bir tasarım.'),
