@@ -186,4 +186,27 @@ CASES = [
   ('Mobil uyumlu', 'Videolar ve yazılar telefon ekranına göre düzenleniyor.'),
  ],
 },
+{
+ 'slug': 'selvira-gayrimenkul', 'key': 'selvira',
+ 'name': 'Selvira Gayrimenkul', 'kind': 'Emlak web sitesi', 'sector': 'Gayrimenkul',
+ 'demo': 'https://emlak.dablabs.net/', 'img': 'selvira-gayrimenkul.jpg',
+ 'img_alt': 'Selvira Gayrimenkul sitesinin açılışı: orman içindeki göl kıyısında bir evin drone videosu',
+ 'tech': ['HTML', 'CSS', 'JavaScript'],
+ 'service': 'kurumsal-web-sitesi',
+ 'title': 'Selvira Gayrimenkul: Premium Emlak Ofisi Web Sitesi | DAB Labs',
+ 'desc': 'Drone videolu açılış, oda oda ilerleyen ev turu ve ilanı kendiliğinden seçen randevu formuyla premium bir emlak ofisi web sitesi konsepti.',
+ 'lead': 'Sapanca ve Kartepe’de villa ve göl evi satan hayali bir emlak ofisi için hazırladığımız site. Ev alan biri önce bölgenin havasını, sonra evin kendisini görmek ister; biz siteyi <strong>bir ev gezisi gibi</strong> kurguladık.',
+ 'idea': [
+  'Emlak sitelerinin çoğu küçük fotoğraflardan oluşan bir ilan listesidir. Bu çalışmada ziyaretçiyi göl kıyısında, ormanın içindeki bir evin tam ekran drone videosuyla karşıladık; ilanları ise fiyatı, oda sayısı ve metrekaresi ilk bakışta okunan sade kartlarla gösterdik.',
+  'Haftanın evini oda oda gezdiren bir bölüm ekledik: fotoğraf odalar arasında yumuşak geçişle değişiyor ve liste kendiliğinden ilerliyor. Ziyaretçi bir ilana tıkladığında randevu formunda o ev ve “Ev almak istiyorum” seçili geliyor; formu doldurmak birkaç saniye sürüyor.',
+ ],
+ 'features': [
+  ('Drone videolu açılış', 'Göl kıyısında, ormanın içindeki evi gösteren tam ekran video; ekrandan çıkınca duruyor, durdurma düğmesi var.'),
+  ('Sade ilan vitrini', 'Haftanın evi büyük kartta; diğer ilanlarda konum, oda, metrekare ve fiyat ilk bakışta okunuyor.'),
+  ('Oda oda ev turu', 'Fotoğraflar odalar arasında yumuşak geçişle değişiyor, oda listesi kendiliğinden ilerliyor.'),
+  ('İlanı seçen randevu formu', 'Tıklanan ilan ve ziyaret amacı formda kendiliğinden seçili geliyor.'),
+  ('Sinematik hizmet videosu', 'Bir villanın içinde dolaşan 21:9 film; yalnızca ekrana gelince yükleniyor ve oynuyor.'),
+  ('Hareket tercihi ve mobil', 'Animasyonları azaltmayı seçen ziyaretçide videolar ve otomatik geçişler kapanıyor; telefonda her bölüm tek sütun.'),
+ ],
+},
 ]
