@@ -1,6 +1,6 @@
 # DAB Labs — dablabs.net
 
-Bu, DAB Labs'ın tanıtım sitesi. Statik ve Türkçe bir site (ana sayfa + 6 hizmet sayfası + 8 vaka sayfası + blog); web tasarım ve yazılım hizmetleri tanıtılıyor. Build adımı ve framework yok: düz HTML, CSS ve vanilla JS. Site Vercel'de yayında.
+Bu, DAB Labs'ın tanıtım sitesi. Statik ve Türkçe bir site (ana sayfa + 6 hizmet sayfası + 8 vaka sayfası + blog + İngilizce sürüm); web tasarım ve yazılım hizmetleri tanıtılıyor. Build adımı ve framework yok: düz HTML, CSS ve vanilla JS. Site Vercel'de yayında.
 
 Çalışırken iki bilgisayar kullanılıyor (ev ve iş). Claude konuşmaları bilgisayarlar arasında eşitlenmiyor, bu yüzden kalıcı bağlam bu dosyada ve git geçmişinde tutuluyor.
 
@@ -14,8 +14,12 @@ Bu, DAB Labs'ın tanıtım sitesi. Statik ve Türkçe bir site (ana sayfa + 6 hi
 - Hizmet sayfaları: `kurumsal-web-sitesi/`, `e-ticaret-sitesi/`, `kisisel-web-sitesi/`, `mobil-uygulama-gelistirme/`, `ozel-yazilim/`, `site-yenileme-ve-seo/` klasörlerinde `index.html`. Adresler sondaki `/` ile (`/kurumsal-web-sitesi/`); `vercel.json` içinde `trailingSlash: true` var. Bu sayfalarda tüm yollar mutlak (`/assets/...`, `/#iletisim`). Her sayfada BreadcrumbList, Service ve FAQPage JSON-LD'si var. Sayfa stilleri `style.css` sonundaki "hizmet sayfaları" bölümünde.
 - Vaka sayfaları: `calismalar/<proje>/index.html` (kartaltepe-makina, veteriner-klinigi, velora-atelier, modalife, parla-dis-klinigi, ne-kadar-uzak, kervan-lojistik, kozhane). Her biri fikir, proje künyesi, öne çıkan özellikler, canlı demo linki ve önceki/sonraki gezinmesi içeriyor. JSON-LD: BreadcrumbList + CreativeWork. Stiller `style.css` sonundaki "vaka sayfaları" bölümünde.
 - Blog: `blog/index.html` (liste) ve `blog/<yazi>/index.html`. Yazılarda içindekiler listesi (`h2 id`'lerinden), tarih, okuma süresi, ilgili hizmete CTA ve diğer yazılar var. JSON-LD: BreadcrumbList + BlogPosting (liste sayfasında Blog). Stiller `style.css` sonundaki "blog" bölümünde. Menüde ve footer'da "Blog" linki var. Yeni yazı eklenince blog listesine, diğer yazıların "diğer yazılar" listesine ve `sitemap.xml`'e eklenmeli. Yazılarda fiyat rakamı, müşteri hikâyesi veya sıralama garantisi yazılmaz.
+- İngilizce sürüm: `en/index.html` (ana sayfa) ve `en/<slug>/` altında 6 hizmet sayfası (corporate-website, ecommerce-website, personal-website, mobile-app-development, custom-software, website-redesign-and-seo). Blog ve vaka sayfaları yalnızca Türkçe. EN ana sayfada bölüm id'leri İngilizce (`#services`, `#why`, `#work`, `#process`, `#faq`, `#contact`); çalışma kartları doğrudan canlı demolara gider. TR ve EN karşılık sayfalarda `hreflang` (tr, en, x-default=tr) etiketleri karşılıklı tanımlı; yeni bir çift eklenirse ikisine birden eklenmeli. Menüde dil seçici `a.lang` var (TR sayfalarda EN, EN sayfalarda TR); karşılığı olmayan TR sayfalarda `/en/`'e gider.
+- **İngilizce sürüm Instagram'dan gelen yabancı ziyaretçiler için.** EN sayfalarda konum (Sakarya, Türkiye) bilerek hiç geçmez; metinde ve JSON-LD'de adres/areaServed yok, sadece "remote" çalışma vurgusu var. Türkçe sayfalardaki Sakarya konumlandırması değişmez.
+- `main.js` iki dilli: `<html lang="en">` ise form mesajları, terminal animasyonu ve WhatsApp metni İngilizce (`T` nesnesi). Formdan gelen e-postada `Dil` alanı var.
+- CSS sınıf adı seçerken mevcut kısa adlarla çakışmaya dikkat: `.k .s .n .c .pn .cm` kod renklendirme sınıflarıdır (bir ara vaka gezinmesine `.pn` verilmiş ve ana sayfadaki kod kartını bozmuştu; şimdi `.case-nav`).
 - **Tüm çalışmalar konsept, henüz gerçek müşteri yok.** Vaka sayfalarında ve ana sayfada bu açıkça belirtiliyor ("konsept çalışma" etiketi ve not). Gerçek müşteri gelene kadar müşteri yorumu, müşteri adı veya "müşterimiz için yaptık" gibi ifadeler yazılmaz.
-- **Header ve footer 20 dosyada ayrı ayrı duruyor** (ortak şablon yok). Menüde veya footer'da değişiklik yapılırsa ana sayfa, 6 hizmet, 8 vaka ve 5 blog sayfasının hepsi güncellenmeli. Yeni sayfa eklenirse `sitemap.xml`'e de eklenmeli.
+- **Header ve footer 27 dosyada ayrı ayrı duruyor** (TR 20, EN 7) (ortak şablon yok). Menüde veya footer'da değişiklik yapılırsa ana sayfa, 6 hizmet, 8 vaka ve 5 blog sayfasının hepsi güncellenmeli. Yeni sayfa eklenirse `sitemap.xml`'e de eklenmeli.
 - `vercel.json`: güvenlik başlıkları, önbellek ve sondaki `/` ayarı.
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`.
 
@@ -57,7 +61,7 @@ Bu, DAB Labs'ın tanıtım sitesi. Statik ve Türkçe bir site (ana sayfa + 6 hi
 
 - Konum: Sakarya merkezli, Türkiye geneline online hizmet. Başlıkta, meta açıklamada, JSON-LD'de (`address`, `areaServed`), iletişim listesinde, footer'da ve SSS'de geçiyor.
 - Şehir şehir "X web tasarım" sayfaları **açılmayacak**. İçeriği aynı, yalnızca şehir adı değişen sayfaları Google "doorway page" sayıyor ve cezalandırıyor. Bir şehre özel sayfa ancak o şehirde gerçek müşteri ve proje olunca açılır.
-- SEO yol haritası (sırayla): 1) konum bilgisi (yapıldı), 2) her hizmete ayrı sayfa (yapıldı), 3) Google İşletme Profili (kullanıcı açtı; Maps linki henüz JSON-LD'ye eklenmedi), 4) çalışmaları vaka sayfalarına çevirme (yapıldı), 5) blog (4 yazıyla başladı, düzenli yazı eklenmeli), 6) backlink, 7) İngilizce sürüm (`/en/`, hreflang ile).
+- SEO yol haritası (sırayla): 1) konum bilgisi (yapıldı), 2) her hizmete ayrı sayfa (yapıldı), 3) Google İşletme Profili (doğrulama için video çekilecek; doğrulanınca Maps linki JSON-LD `sameAs`/`hasMap`'e eklenecek), 4) çalışmaları vaka sayfalarına çevirme (yapıldı), 5) blog (4 yazıyla başladı, düzenli yazı eklenmeli), 6) backlink, 7) İngilizce sürüm (yapıldı: ana sayfa + 6 hizmet).
 - Hizmet sayfalarında bilerek yazılmayanlar (henüz yapılmadığı için): belirli ödeme firması adları, Excel/CSV toplu ürün yükleme, sanal POS başvurusunda yol gösterme, PWA. Not: `github.com/Berkay54/ecommerce` reposunda iyzico sandbox entegrasyonu var; production'da yapılınca bunlar eklenebilir.
 
 ## Yerelde çalıştırma

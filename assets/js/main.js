@@ -8,6 +8,49 @@
   var FACEBOOK = 'https://www.facebook.com/profile.php?id=61595501375789'; // boş bırakırsan Facebook ikonları gizlenir
   var WHATSAPP = '';                   // örn: '905551234567' (boş bırakırsan WhatsApp butonu gizlenir)
 
+  var EN = document.documentElement.lang === 'en';
+  var T = EN ? {
+    cmd: 'dablabs new-project --type=ecommerce',
+    lines: [
+      '<span class="t-d">  defining scope, audience and tech stack...</span>',
+      '<span class="t-ok">✓</span> Discovery and analysis complete',
+      '<span class="t-ok">✓</span> Design and prototype approved',
+      '<span class="t-w">→</span> Coding in progress',
+      '   <span class="t-b">HTML5 · CSS3 · JavaScript · TypeScript</span>',
+      '   <span class="t-b">React · Next.js · Node.js · Flutter</span>',
+      '<span class="t-ok">✓</span> SEO and performance tests passed',
+      '<span class="t-ok">✓</span> Live',
+      '<span class="t-p">→</span> <span class="t-b">https://your-site.com</span>'
+    ],
+    needName: 'Please enter your name.', needEmail: 'Please enter a valid email address.',
+    subject: 'Quote request: ', general: 'General', sending: 'Sending...',
+    ok: 'Thank you! Your request has reached us and we will get back to you shortly.',
+    err: 'Something went wrong. Please try again or email ',
+    lName: 'Name', lEmail: 'Email', lPhone: 'Phone', lService: 'Service', lAbout: 'About the project',
+    from: 'DAB Labs Website (EN)',
+    wa: 'Hello, I would like information about a website/software project.'
+  } : {
+    cmd: 'dablabs yeni-proje --tur=e-ticaret',
+    lines: [
+      '<span class="t-d">  kapsam, hedef kitle ve teknoloji belirleniyor...</span>',
+      '<span class="t-ok">✓</span> Keşif ve analiz tamamlandı',
+      '<span class="t-ok">✓</span> Tasarım ve prototip onaylandı',
+      '<span class="t-w">→</span> Kodlama sürüyor',
+      '   <span class="t-b">HTML5 · CSS3 · JavaScript · TypeScript</span>',
+      '   <span class="t-b">React · Next.js · Node.js · Flutter</span>',
+      '<span class="t-ok">✓</span> SEO ve performans testleri geçti',
+      '<span class="t-ok">✓</span> Yayına alındı',
+      '<span class="t-p">→</span> <span class="t-b">https://musteri-siteniz.com.tr</span>'
+    ],
+    needName: 'Lütfen adınızı yazın.', needEmail: 'Lütfen geçerli bir e-posta adresi yazın.',
+    subject: 'Teklif talebi: ', general: 'Genel', sending: 'Gönderiliyor...',
+    ok: 'Teşekkürler! Talebiniz bize ulaştı, en kısa sürede dönüş yapacağız.',
+    err: 'Bir sorun oluştu. Lütfen tekrar deneyin ya da şu adrese yazın: ',
+    lName: 'Ad Soyad', lEmail: 'E-posta', lPhone: 'Telefon', lService: 'Hizmet', lAbout: 'Proje hakkında',
+    from: 'DAB Labs Web Sitesi',
+    wa: 'Merhaba, web sitesi/yazılım projesi için bilgi almak istiyorum.'
+  };
+
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -45,18 +88,8 @@
   /* terminal animasyonu */
   var term = $('#term');
   if (term) {
-    var cmd = 'dablabs yeni-proje --tur=e-ticaret';
-    var lines = [
-      '<span class="t-d">  kapsam, hedef kitle ve teknoloji belirleniyor...</span>',
-      '<span class="t-ok">✓</span> Keşif ve analiz tamamlandı',
-      '<span class="t-ok">✓</span> Tasarım ve prototip onaylandı',
-      '<span class="t-w">→</span> Kodlama sürüyor',
-      '   <span class="t-b">HTML5 · CSS3 · JavaScript · TypeScript</span>',
-      '   <span class="t-b">React · Next.js · Node.js · Flutter</span>',
-      '<span class="t-ok">✓</span> SEO ve performans testleri geçti',
-      '<span class="t-ok">✓</span> Yayına alındı',
-      '<span class="t-p">→</span> <span class="t-b">https://musteri-siteniz.com.tr</span>'
-    ];
+    var cmd = T.cmd;
+    var lines = T.lines;
     var prompt = '<span class="t-p">$</span> ';
     var cursor = '<span class="cur"></span>';
     if (reduce) {
@@ -89,27 +122,28 @@
       e.preventDefault();
       var v = function (n) { return (form.elements[n] && form.elements[n].value || '').trim(); };
 
-      if (!v('ad')) { setStatus('Lütfen adınızı yazın.', 'err'); form.elements.ad.focus(); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('eposta'))) { setStatus('Lütfen geçerli bir e-posta adresi yazın.', 'err'); form.elements.eposta.focus(); return; }
+      if (!v('ad')) { setStatus(T.needName, 'err'); form.elements.ad.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('eposta'))) { setStatus(T.needEmail, 'err'); form.elements.eposta.focus(); return; }
       if (form.elements.botcheck && form.elements.botcheck.checked) { return; }
 
-      var subject = 'Teklif talebi: ' + (v('hizmet') || 'Genel');
-      var body = 'Ad Soyad: ' + v('ad') + '\nE-posta: ' + v('eposta') + '\nTelefon: ' + v('telefon') +
-        '\nHizmet: ' + v('hizmet') + '\n\nProje hakkında:\n' + v('mesaj');
+      var subject = T.subject + (v('hizmet') || T.general);
+      var body = T.lName + ": " + v("ad") + "\n" + T.lEmail + ": " + v("eposta") + "\n" + T.lPhone + ": " + v("telefon") +
+        "\n" + T.lService + ": " + v("hizmet") + "\n\n" + T.lAbout + ":\n" + v("mesaj");
       var mailto = function () {
         window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       };
 
       if (!WEB3FORMS_KEY) { mailto(); return; }
 
-      btn.disabled = true; btn.textContent = 'Gönderiliyor...'; setStatus('');
+      btn.disabled = true; btn.textContent = T.sending; setStatus('');
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
           subject: subject,
-          from_name: 'DAB Labs Web Sitesi',
+          from_name: T.from,
+          'Dil': EN ? 'English' : 'Türkçe',
           replyto: v('eposta'),
           'Ad Soyad': v('ad'),
           'E-posta': v('eposta'),
@@ -122,10 +156,10 @@
         .then(function (res) {
           if (!res.success) { throw new Error(res.message || 'Gönderilemedi'); }
           form.reset();
-          setStatus('Teşekkürler! Talebiniz bize ulaştı, en kısa sürede dönüş yapacağız.', 'ok');
+          setStatus(T.ok, 'ok');
         })
         .catch(function () {
-          setStatus('Bir sorun oluştu. Lütfen tekrar deneyin ya da ' + EMAIL + ' adresine yazın.', 'err');
+          setStatus(T.err + EMAIL, 'err');
         })
         .then(function () { btn.disabled = false; btn.textContent = btnText; });
     });
@@ -135,7 +169,7 @@
   });
   var wa = $('[data-wa]');
   if (wa) {
-    if (WHATSAPP) { wa.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Merhaba, web sitesi/yazılım projesi için bilgi almak istiyorum.'); }
+    if (WHATSAPP) { wa.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(T.wa); }
     else { wa.style.display = 'none'; }
   }
 })();

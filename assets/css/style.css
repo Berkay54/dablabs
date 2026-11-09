@@ -314,16 +314,16 @@ h2{font-weight:800;font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing
 .kv dd{color:#dbe6ff;text-align:right}
 .kv h3{font:600 13px var(--mono);color:var(--cyan);margin-top:24px}
 .kv .tags{margin-top:12px}
-.pn{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
-.pn a{display:block;padding:22px 26px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.02);transition:.25s}
-.pn a:last-child{text-align:right}
-.pn a:hover{border-color:var(--line2);background:rgba(10,149,255,.07)}
-.pn span{display:block;font:500 13px var(--mono);color:var(--cyan);margin-bottom:6px}
-.pn b{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.case-nav{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.case-nav a{display:block;padding:22px 26px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.02);transition:.25s}
+.case-nav a:last-child{text-align:right}
+.case-nav a:hover{border-color:var(--line2);background:rgba(10,149,255,.07)}
+.case-nav span{display:block;font:500 13px var(--mono);color:var(--cyan);margin-bottom:6px}
+.case-nav b{font-size:19px;font-weight:800;letter-spacing:-.01em}
 @media (max-width:640px){
   .case-shot{margin-top:0}
   .kv{padding:24px 22px}
-  .pn{grid-template-columns:1fr}.pn a:last-child{text-align:left}
+  .case-nav{grid-template-columns:1fr}.case-nav a:last-child{text-align:left}
 }
 
 /* blog */
@@ -367,3 +367,8 @@ h2{font-weight:800;font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing
 .nav a{white-space:nowrap}
 @media (min-width:861px) and (max-width:1100px){.nav a{padding:10px 9px;font-size:14.5px}.hdr .wrap{gap:14px}}
 .bcard:hover .more{gap:10px;color:#fff}
+
+/* dil seçici */
+.nav a.lang{font:600 13px var(--mono);padding:7px 10px;margin-left:6px;border:1px solid var(--line2);border-radius:9px;color:#c4d1ec}
+.nav a.lang:hover{border-color:var(--blue);background:rgba(10,149,255,.12);color:#fff}
+@media (max-width:860px){.nav a.lang{display:inline-block;margin:8px 0 0 12px;padding:9px 14px}}
