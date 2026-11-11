@@ -9,6 +9,7 @@ WORKS = {
     'modalife': ('https://modalife.dablabs.net/', 'modalife.jpg', 'ModaLife E-Ticaret Sitesi', 'Kategoriler, kampanyalar, favoriler ve sepet akışıyla moda mağazası.'),
     'velora': ('https://velora.dablabs.net/', 'velora-atelier.jpg', 'Velora Atelier Restoran Web Sitesi', 'Sinematik açılış, imza koleksiyonu ve hikâye anlatan menü deneyimi.'),
     'kozhane': ('https://kozhane.dablabs.net/', 'kozhane.jpg', 'Közhane Ocakbaşı Kebap Sitesi', 'Videolu açılış ve kaydırdıkça sinema perdesi gibi açılan sahneler.'),
+    'selvira': ('https://emlak.dablabs.net/', 'selvira-gayrimenkul.jpg', 'Selvira Gayrimenkul Emlak Sitesi', 'Drone videolu açılış, oda oda ev turu ve ilanı seçen randevu formu.'),
 }
 
 PAGES = [
