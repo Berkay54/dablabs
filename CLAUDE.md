@@ -55,6 +55,8 @@ Bu, DAB Labs'ın tanıtım sitesi. Statik ve Türkçe bir site (ana sayfa + 6 hi
 
 ## Çalışmalar bölümü (`#calismalar`)
 
+- **Kart yelpazesi:** TR `#calismalar` ve EN `#work` içindeki `.works` ızgarasını `main.js` ("çalışmalar: kart yelpazesi" bloğu) yelpaze karuseline çeviriyor. 7 kart görünür; ortadaki kartın başlığı, açıklaması ve linki altta `.fan-cap` içinde, oklar ve noktalar `.fan-nav` içinde. Yan karta tıklayınca kart ortaya gelir, ortadaki karta ya da altyazıdaki butona tıklayınca vaka sayfası/demo açılır. Klavye ok tuşları, dokunmatik kaydırma ve `prefers-reduced-motion` destekleniyor. GSAP yok (CSP harici script'e izin vermiyor), CSS transition ile yapıldı. Stiller `style.css` sonundaki "kart yelpazesi" bölümünde. HTML değişmedi: JS çalışmazsa eski 2 sütunlu ızgara görünür, bu yüzden aşağıdaki çift sayı ve `.work-wide` kuralları yalnızca bu yedek görünüm için geçerli. İlk açılışta ortadaki kart listedeki ilk kart (şu an Kartaltepe).
+
 - Kartlar "İncele →" etiketli ve sitenin içindeki vaka sayfasına (`/calismalar/<proje>/`) gidiyor; canlı demo linki vaka sayfasında. Yeni proje eklenince vaka sayfası da açılmalı ve `sitemap.xml`'e eklenmeli. Hizmet sayfalarındaki "Bu alandaki çalışmalarımız" kartları da vaka sayfalarına gidiyor. Altta CSS ile çizilmiş "Konsept çalışma" kartları var.
 - Yeni proje eklerken: headless Edge ile 1280×760 ekran görüntüsü al, 1040 px genişliğe küçültüp JPEG (kalite 80) olarak `assets/img/works/` klasörüne kaydet. Kartı son canlı demonun arkasına ekle.
 - Kartlardaki `style="--d:.1s"` gecikmesi sırayla bir kartta var, bir kartta yok. Kart eklendikten sonra bu sıra yeniden düzenlenmeli.

@@ -78,6 +78,173 @@
     $$('.rv').forEach(function (el) { io.observe(el); });
   } else { $$('.rv').forEach(function (el) { el.classList.add('in'); }); }
 
+  /* çalışmalar: kart yelpazesi (JS yoksa ızgara olarak kalır) */
+  $$('#calismalar .works, #work .works').forEach(function (box) {
+    var cards = $$('.work', box), n = cards.length;
+    if (n < 2) return;
+    var en = document.documentElement.lang === 'en';
+    var HALF = 3, pag = n > 2 * HALF + 1;
+    /* uzaklık 0..3 için: yatay konum (yayılıma oranı), dönüş, ölçek, düşüş (yMax'a oranı) */
+    var TX = [0, .367, .733, 1], TR = [0, 7, 14, 21], TS = [1, .9346, .8498, .7756], TY = [0, .178, .548, 1];
+    var lerp = function (t, a) { var i = Math.min(Math.floor(t), 2), f = t - i; return a[i] + (a[i + 1] - a[i]) * f; };
+    var center = pag ? 0 : n >> 1, shown = {}, hovered = null, started = false, L;
+
+    box.classList.add('fan');
+    box.setAttribute('aria-hidden', 'true');
+    cards.forEach(function (c) {
+      c.classList.remove('rv', 'work-wide');
+      c.removeAttribute('style');
+      var a = $('.work-a', c); if (a) a.tabIndex = -1;
+    });
+
+    /* altyazı ve gezinme */
+    var cap = document.createElement('div');
+    cap.className = 'fan-cap';
+    cap.setAttribute('aria-live', 'polite');
+    cap.innerHTML = '<span class="fan-n"></span><p class="fan-t"></p><p class="fan-d"></p><a class="btn btn-g fan-go"></a>';
+    var nav = document.createElement('div');
+    nav.className = 'fan-nav';
+    var arrow = function (dir) {
+      return '<button type="button" class="fan-ar" data-dir="' + dir + '" aria-label="' +
+        (dir < 0 ? (en ? 'Previous project' : 'Önceki çalışma') : (en ? 'Next project' : 'Sonraki çalışma')) +
+        '"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="' +
+        (dir < 0 ? '15 18 9 12 15 6' : '9 18 15 12 9 6') + '"/></svg></button>';
+    };
+    nav.innerHTML = arrow(-1) + '<div class="fan-dots">' + cards.map(function (c, i) {
+      return '<button type="button" data-i="' + i + '" aria-label="' + (i + 1) + '. ' + ($('h3', c) || {}).textContent + '"></button>';
+    }).join('') + '</div>' + arrow(1);
+    box.parentNode.insertBefore(cap, box.nextSibling);
+    cap.parentNode.insertBefore(nav, cap.nextSibling);
+    var dots = $$('.fan-dots button', nav);
+
+    var off = function (i) {
+      if (!pag) return (i - center) * HALF / Math.max(center, 1);
+      var d = ((i - center) % n + n) % n;
+      return d > n / 2 ? d - n : d;
+    };
+    var measure = function () {
+      var cw = box.clientWidth, W, sp, rk, ym;
+      if (cw < 640) { W = cw * .74; sp = W * .32; rk = .5; ym = W * .08; }
+      else if (cw < 1000) { W = cw * .44; sp = W * .82; rk = .6; ym = W * .14; }
+      else { W = Math.min(430, cw * .35); sp = W; rk = .6; ym = W * .16; }
+      box.style.setProperty('--fw', W + 'px');
+      var H = cards[0].offsetHeight;
+      box.style.height = (H + ym + 84) + 'px';
+      L = { W: W, sp: sp, rk: rk, ym: ym };
+    };
+    var place = function (d, extra) {
+      var t = Math.abs(d), s = d < 0 ? -1 : 1, e = extra || {};
+      var x = s * lerp(t, TX) * L.sp + (e.x || 0), y = lerp(t, TY) * L.ym + (e.y || 0);
+      var r = s * lerp(t, TR) * L.rk + (e.r || 0), k = lerp(t, TS) * (e.k || 1);
+      return 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + r.toFixed(2) + 'deg) scale(' + k.toFixed(4) + ')';
+    };
+    var jump = function (c, tf, op) {
+      c.style.transition = 'none'; c.style.transform = tf; c.style.opacity = op;
+      void c.offsetWidth; c.style.transition = '';
+    };
+    var hoverExtra = function (d) {
+      if (hovered === null || !started) return null;
+      var dist = Math.abs(d - hovered);
+      if (d === hovered) return { y: -L.W * .07, k: 1.06 };
+      var push = L.sp * .27 * (1 - Math.min(Math.abs(d) / HALF, 1)) * (1 + .2 * Math.max(0, 3 - dist));
+      var s = d < hovered ? -1 : 1;
+      return { x: s * push, r: s * 3 / (dist + 1) };
+    };
+
+    var render = function (dir, first) {
+      var now = {};
+      cards.forEach(function (c, i) {
+        var d = off(i), vis = Math.abs(d) <= HALF + 1e-6;
+        c.style.transitionDelay = '';
+        if (vis) {
+          now[i] = 1;
+          var tf = place(d, hoverExtra(d));
+          if (first && !reduce) {
+            jump(c, 'translate(0,' + (L.ym + 80) + 'px) scale(.5)', 0);
+            c.style.transitionDelay = (.15 + (d + HALF) * .06) + 's';
+          } else if (!shown[i] && dir && !reduce) {
+            jump(c, place(dir * (HALF + 1.6)), 0);
+          }
+          c.style.transform = tf; c.style.opacity = 1;
+          c.style.zIndex = 20 - Math.round(Math.abs(d) * 2);
+          c.classList.toggle('is-c', Math.abs(d) < 1e-6);
+          c.classList.toggle('is-h', hovered !== null && d === hovered && d !== 0);
+          c.classList.remove('is-off');
+        } else {
+          if (shown[i] && dir) { c.style.transform = place(-dir * (HALF + 1.6)); }
+          else if (!shown[i]) { c.style.transform = 'scale(.4)'; }
+          c.style.opacity = 0; c.style.zIndex = 0;
+          c.classList.remove('is-c', 'is-h'); c.classList.add('is-off');
+        }
+      });
+      shown = now;
+      var c = cards[center], a = $('.work-a', c);
+      $('.fan-n', cap).textContent = ('0' + (center + 1)).slice(-2) + ' / ' + ('0' + n).slice(-2);
+      $('.fan-t', cap).textContent = ($('h3', c) || {}).textContent || '';
+      $('.fan-d', cap).textContent = ($('.work-i p', c) || {}).textContent || '';
+      var go = $('.fan-go', cap);
+      go.href = a.href; go.textContent = ($('.chip', c) || {}).textContent || (en ? 'View →' : 'İncele →');
+      if (a.target) { go.target = a.target; go.rel = 'noopener'; } else { go.removeAttribute('target'); go.removeAttribute('rel'); }
+      if (!first) { cap.classList.remove('sw'); void cap.offsetWidth; cap.classList.add('sw'); }
+      dots.forEach(function (b, i) { b.setAttribute('aria-current', i === center ? 'true' : 'false'); });
+    };
+
+    var goTo = function (i) {
+      if (i === center) return;
+      var d = off(i), dir = d > 0 ? 1 : -1;
+      center = i; hovered = null; render(dir);
+    };
+    var step = function (dir) { goTo(pag ? (center + dir + n) % n : Math.max(0, Math.min(n - 1, center + dir))); };
+
+    nav.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      if (b.dataset.dir) step(+b.dataset.dir); else goTo(+b.dataset.i);
+    });
+    [cap, nav].forEach(function (el) {
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+      });
+    });
+    box.addEventListener('click', function (e) {
+      var c = e.target.closest('.work'); if (!c) return;
+      var i = cards.indexOf(c);
+      if (i !== center) { e.preventDefault(); goTo(i); }
+    });
+    if (window.matchMedia('(hover: hover)').matches) {
+      cards.forEach(function (c, i) {
+        c.addEventListener('mouseenter', function () {
+          if (!started || !shown[i]) return;
+          var d = off(i); if (hovered === d) return;
+          hovered = d; render(0);
+        });
+      });
+      box.addEventListener('mouseleave', function () { if (hovered !== null) { hovered = null; render(0); } });
+    }
+    var sx = null, sy = 0;
+    box.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') { sx = e.clientX; sy = e.clientY; } });
+    box.addEventListener('pointerup', function (e) {
+      if (sx === null) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1);
+    });
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { measure(); if (started) render(0); }, 120);
+    });
+
+    measure();
+    var start = function () { started = true; render(0, true); };
+    cards.forEach(function (c) { c.style.opacity = 0; });
+    if ('IntersectionObserver' in window && !reduce) {
+      var fio = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { fio.disconnect(); start(); }
+      }, { threshold: .2 });
+      fio.observe(box);
+    } else { start(); }
+  });
+
   /* kart ışığı */
   $$('.card').forEach(function (c) {
     c.addEventListener('pointermove', function (e) {
