@@ -186,4 +186,27 @@ CASES = [
   ('Mobil uyumlu', 'Videolar ve yazılar telefon ekranına göre düzenleniyor.'),
  ],
 },
+{
+ 'slug': 'cikolata-atolyesi', 'key': 'cikolata',
+ 'name': 'Çikolata Atölyesi', 'kind': 'Marka web sitesi', 'sector': 'Butik çikolata ve etkinlik',
+ 'demo': 'https://cikolata.dablabs.net/', 'img': 'cikolata-atolyesi.jpg',
+ 'img_alt': 'Çikolata atölyesi sitesinin açılışı: pralinler önünde “Bir Çikolatadan Daha Fazlası” başlığı ve imza ürün kartları',
+ 'tech': ['Next.js', 'React', 'Tailwind CSS', 'GSAP', 'Lenis'],
+ 'service': 'kurumsal-web-sitesi',
+ 'title': 'Çikolata Atölyesi: Butik Çikolata Markası Web Sitesi | DAB Labs',
+ 'desc': 'Videolu açılış, temperleme videosuyla atölye hikâyesi ve kurumsal etkinlik hizmetleriyle el yapımı Belçika çikolatası markası için web sitesi konsepti.',
+ 'lead': 'El yapımı Belçika çikolatası üreten hayali bir atölye için hazırladığımız site. Ürünleri bir katalog gibi dizmek yerine <strong>atölyenin ustalığını ve sıcaklığını</strong> hissettirmek istedik.',
+ 'idea': [
+  'Butik bir çikolata markasını raftaki ürünlerden ayıran şey el emeğidir. Bu yüzden siteyi pralinlerin yakın çekim videosuyla açtık ve hemen altında kutu, bitter koleksiyon, özel tasarım ve kurumsal hediye olarak dört imza ürünü gösterdik.',
+  'Atölye bölümünde ustanın mermer tezgâhta çikolata temperlediği video, hikâyeyi kelimelerden daha iyi anlatıyor. Sayfanın sonunda markanın ikinci gelir kapısı olan çikolata çeşmesi, waffle istasyonu ve ofis ikramı gibi etkinlik hizmetleri yer alıyor.',
+ ],
+ 'features': [
+  ('Videolu açılış', 'Pralinlerin yakın çekim videosu ekran yönüne göre yatay ya da dikey kadrajla açılıyor; ziyaretçi videoyu durdurabiliyor.'),
+  ('İmza ürünler', 'Açılışın altında dört imza ürün kısa açıklamalarıyla tek bakışta görülüyor.'),
+  ('Atölye hikâyesi', 'Temperleme videosu kaydırdıkça hafif bir derinlik efektiyle ilerliyor, başlık satır satır beliriyor.'),
+  ('Etkinlik ve kurumsal hizmetler', 'Çikolata çeşmesi, waffle istasyonu ve ofis ikramı; logolu sunum gibi kurumsal avantajlarla birlikte.'),
+  ('Sayfa içi arama', 'Menüdeki arama penceresi ürün, hizmet ve içerikleri anında bulup ilgili bölüme götürüyor.'),
+  ('Hız ve hareket tercihi', 'Videolar yalnızca ekranda görünürken oynuyor; animasyonları azaltmayı seçen ziyaretçiler için hareketler kapanıyor.'),
+ ],
+},
 ]

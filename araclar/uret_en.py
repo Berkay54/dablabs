@@ -137,6 +137,7 @@ WORKS = [
  ('https://uzay.dablabs.net/', 'ne-kadar-uzak.jpg', False, '“How Far?” Cinematic Scroll Site', 'An interactive story that passes through the eye and travels from the Moon to Andromeda as you scroll.', 'Opening of the “How Far?” site: close-up of a green eye'),
  ('https://kervan.dablabs.net/', 'kervan-lojistik.jpg', False, 'Kervan Logistics Corporate Site', 'A real-time 3D container terminal, route map and shipment tracking.', 'Kervan Logistics site opening: a crane working in a 3D container terminal'),
  ('https://kozhane.dablabs.net/', 'kozhane.jpg', True, 'Közhane Kebab House Website', 'A video opening, Iskender explained layer by layer and a Beyti scene that opens like a cinema screen as you scroll.', 'Közhane kebab site opening: kebab video on flatbread'),
+ ('https://cikolata.dablabs.net/', 'cikolata-atolyesi.jpg', True, 'Chocolate Atelier Website', 'A video opening, a workshop story told through tempering footage and corporate event services for a handmade chocolate brand.', 'Chocolate atelier site opening: pralines behind the headline and signature product cards'),
 ]
 
 def home():
@@ -168,7 +169,7 @@ def home():
         <a class="more" href="/en/{slug}/">Learn more <span aria-hidden="true">→</span></a>
       </article>'''.format(d=delays[i % 3], ico=ico, t=t, p=p, tags=''.join('<li>%s</li>' % x for x in tags), slug=slug)
                     for i, (ico, t, p, tags, slug) in enumerate(svc_cards))
-    wdel = ['', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '']
+    wdel = ['', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '', '']
     works = ''.join('''
       <article class="work{wide} rv"{d}>
         <a class="work-a" href="{href}" target="_blank" rel="noopener" aria-label="{t}: open the live demo in a new tab">
