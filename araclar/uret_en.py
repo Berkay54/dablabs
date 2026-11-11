@@ -138,7 +138,8 @@ WORKS = [
  ('https://kervan.dablabs.net/', 'kervan-lojistik.jpg', False, 'Kervan Logistics Corporate Site', 'A real-time 3D container terminal, route map and shipment tracking.', 'Kervan Logistics site opening: a crane working in a 3D container terminal'),
  ('https://kozhane.dablabs.net/', 'kozhane.jpg', False, 'Közhane Kebab House Website', 'A video opening, Iskender explained layer by layer and a Beyti scene that opens like a cinema screen as you scroll.', 'Közhane kebab site opening: kebab video on flatbread'),
  ('https://emlak.dablabs.net/', 'selvira-gayrimenkul.jpg', False, 'Selvira Real Estate Website', 'A drone video opening, a room-by-room house tour and a booking form that picks the listing you clicked.', 'Selvira Real Estate site opening: drone video of a lakeside house in a forest'),
- ('https://cikolata.dablabs.net/', 'cikolata-atolyesi.jpg', True, 'Chocolate Atelier Website', 'A video opening, a workshop story told through tempering footage and corporate event services for a handmade chocolate brand.', 'Chocolate atelier site opening: pralines behind the headline and signature product cards'),
+ ('https://cikolata.dablabs.net/', 'cikolata-atolyesi.jpg', False, 'Chocolate Atelier Website', 'A video opening, a workshop story told through tempering footage and corporate event services for a handmade chocolate brand.', 'Chocolate atelier site opening: pralines behind the headline and signature product cards'),
+ ('https://pure-ivory.vercel.app/', 'pure-guzellik.jpg', False, 'Pure Beauty Studio Website', 'Elegant serif typography, sections that come alive as you scroll and skincare, laser and beauty services that lead to a booking.', 'Pure Beauty site opening: a woman applying skincare to her face, holding a frosted glass serum bottle'),
 ]
 
 def home():
@@ -170,7 +171,7 @@ def home():
         <a class="more" href="/en/{slug}/">Learn more <span aria-hidden="true">→</span></a>
       </article>'''.format(d=delays[i % 3], ico=ico, t=t, p=p, tags=''.join('<li>%s</li>' % x for x in tags), slug=slug)
                     for i, (ico, t, p, tags, slug) in enumerate(svc_cards))
-    wdel = ['', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '']
+    wdel = ['', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '', ' style="--d:.1s"', '', ' style="--d:.1s"']
     works = ''.join('''
       <article class="work{wide} rv"{d}>
         <a class="work-a" href="{href}" target="_blank" rel="noopener" aria-label="{t}: open the live demo in a new tab">
