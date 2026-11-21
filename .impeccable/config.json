@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-21T06:17:36.813Z",
+        "reason": "project constraint: dablabs CLAUDE.md says Inter is the site's only self-hosted font and CSP (font-src 'self') blocks external fonts; rehber.css reuses those files"
+      }
+    ]
+  }
+}
