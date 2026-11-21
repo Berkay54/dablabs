@@ -5,6 +5,7 @@ from icerik_hizmetler import PAGES, WORKS
 from icerik_calismalar import CASES
 from icerik_blog import POSTS
 from icerik_en import EN_PAGES
+from icerik_rehber import REHBERLER
 CASE_SLUG = {c['key']: c['slug'] for c in CASES}
 EN_SLUG = {e['tr']: e['slug'] for e in EN_PAGES}
 
@@ -241,7 +242,7 @@ for p in PAGES:
 
 # ---- sitemap (tüm sayfalar) ----
 LASTMOD = datetime.date.today().isoformat()
-urls = [(SITE + '/', '1.0')] + [('%s/%s/' % (SITE, p['slug']), '0.8') for p in PAGES] + [(SITE + '/ucretsiz-site-analizi/', '0.8')] + [('%s/calismalar/%s/' % (SITE, c['slug']), '0.6') for c in CASES] + [(SITE + '/rehber/', '0.6')] + [(SITE + '/blog/', '0.6')] + [('%s/blog/%s/' % (SITE, b['slug']), '0.6') for b in POSTS] + [(SITE + '/en/', '0.9')] + [('%s/en/%s/' % (SITE, e['slug']), '0.7') for e in EN_PAGES]
+urls = [(SITE + '/', '1.0')] + [('%s/%s/' % (SITE, p['slug']), '0.8') for p in PAGES] + [(SITE + '/ucretsiz-site-analizi/', '0.8')] + [('%s/calismalar/%s/' % (SITE, c['slug']), '0.6') for c in CASES] + [(SITE + '/rehber/', '0.6')] + [('%s/rehber/%s/' % (SITE, r['slug']), '0.5') for r in REHBERLER] + [(SITE + '/blog/', '0.6')] + [('%s/blog/%s/' % (SITE, b['slug']), '0.6') for b in POSTS] + [(SITE + '/en/', '0.9')] + [('%s/en/%s/' % (SITE, e['slug']), '0.7') for e in EN_PAGES]
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
     '  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>%s</priority>\n  </url>\n' % (u[0], LASTMOD, u[1])
     for u in urls) + '</urlset>\n'

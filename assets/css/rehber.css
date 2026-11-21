@@ -98,3 +98,40 @@ ul{list-style:none}
   .rh-yardim{padding:20px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* liste: başlık linki */
+.rh-govde h2 a{text-decoration:none}
+.rh-govde h2 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+
+/* tek rehber sayfası */
+.rh-detay{padding:28px 0 0}
+.rh-geri{display:inline-block;font-size:14.5px;font-weight:600;color:var(--soluk);text-decoration:none;margin-bottom:22px}
+.rh-geri:hover{color:var(--yazi)}
+.rh-detay-g{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:center}
+.rh-detay .rh-ust{color:var(--camgobegi);margin-bottom:10px}
+.rh-detay .rh-kapak{border-radius:18px;box-shadow:0 30px 80px rgba(168,85,247,.16)}
+.rh-detay h1{font-size:clamp(30px,4.6vw,46px);line-height:1.1;font-weight:800;letter-spacing:-.025em;text-wrap:balance}
+.rh-detay .rh-giris{margin-top:14px;font-size:17.5px}
+.rh-detay .rh-etiket{margin:18px 0 0}
+.rh-detay .rh-meta{margin-top:12px;font-size:13.5px;color:var(--sonuk)}
+.rh-detay .rh-btn{padding-top:22px}
+.rh-detay .rh-b{min-height:54px;padding:0 26px;font-size:17px}
+.rh-diger{margin-top:48px}
+.rh-diger h2{font-size:20px;font-weight:800;margin-bottom:14px}
+.rh-diger ul{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.rh-diger li a{display:flex;align-items:center;gap:14px;padding:12px;border:1px solid var(--cizgi);border-radius:16px;background:var(--kart);text-decoration:none;transition:border-color .2s}
+.rh-diger li a:hover{border-color:var(--cizgi2)}
+.rh-diger img{width:64px;height:64px;border-radius:10px;flex:none;object-fit:cover}
+.rh-diger span{display:flex;flex-direction:column;min-width:0}
+.rh-diger strong{font-weight:600;line-height:1.3}
+.rh-diger small{font-size:13px;color:var(--sonuk);margin-top:2px}
+.rh-tumu{display:inline-block;margin-top:14px;font-weight:600;color:var(--camgobegi);text-decoration:none}
+.rh-tumu:hover{text-decoration:underline}
+@media (max-width:760px){
+  .rh-detay{padding-top:12px}
+  .rh-detay-g{grid-template-columns:1fr;gap:22px}
+  .rh-detay .rh-kapak{max-width:170px;aspect-ratio:1;border-radius:14px}
+  .rh-detay .rh-govde{display:flex}
+  .rh-detay .rh-govde>*{grid-column:auto}
+  .rh-detay .rh-b{flex:1 1 0}
+}

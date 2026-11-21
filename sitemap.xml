@@ -115,6 +115,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dablabs.net/rehber/claude-5-skill/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dablabs.net/rehber/karpathy-skills/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://dablabs.net/blog/</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
