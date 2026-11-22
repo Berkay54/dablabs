@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'claude-mem',
+        'baslik': "claude-mem: Claude'a kalıcı hafıza",
+        'ozet': "Claude Code'un oturumlar arasında her şeyi unutmasını bitiren ücretsiz eklentiyi kur. "
+                "Yaptıklarını kaydedip özetliyor, yeni oturumda kaldığın yerden devam ediyor. Gizlilik ayarları da içinde.",
+        'etiketler': ['Claude Code', 'Eklenti', 'Hafıza'],
+        'tarih': '2026-11-23',
+    },
+    {
         'slug': 'youtube-agent',
         'baslik': 'YouTube Agent: YouTube için ücretsiz Claude ekibi',
         'ozet': "YouTube videoların için haftalık plan, senaryo, kurgu listesi, izlenme analizi ve nişindeki viral "

@@ -115,6 +115,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dablabs.net/rehber/claude-mem/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://dablabs.net/rehber/youtube-agent/</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>monthly</changefreq>
