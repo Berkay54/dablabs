@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'youtube-agent',
+        'baslik': 'YouTube Agent: YouTube için ücretsiz Claude ekibi',
+        'ozet': "YouTube videoların için haftalık plan, senaryo, kurgu listesi, izlenme analizi ve nişindeki viral "
+                "videoları Claude'a hazırlatan ücretsiz eklentiyi kur. Claude Code ve Claude.ai kurulumu içinde.",
+        'etiketler': ['YouTube', 'Claude Code', 'Eklenti'],
+        'tarih': '2026-11-22',
+    },
+    {
         'slug': 'superpowers',
         'baslik': "Superpowers: Claude'a süper güç veren eklenti",
         'ozet': "Claude Code'un koda dalmadan önce soru sormasını, plan yapmasını, testle ilerlemesini ve "
