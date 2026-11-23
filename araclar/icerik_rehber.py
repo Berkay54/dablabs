@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'hiring-panel',
+        'baslik': "Hiring Panel: CV'ni 7 Claude'a reddettir",
+        'ozet': "CV'ni ve iş ilanını yedi farklı değerlendirici Claude'a okutan, hataları tek listede toplayıp CV'ni "
+                "aynı bilgilerle baştan yazan ücretsiz skill'i kur. Kullanım komutu ve ipuçları da içinde.",
+        'etiketler': ['Kariyer', 'Claude Code', 'Skill'],
+        'tarih': '2026-11-24',
+    },
+    {
         'slug': 'whatsapp-asistan',
         'baslik': 'Claude ile WhatsApp asistanı',
         'ozet': "Müşteri mesajlarına senin yerine cevap veren, fiyat söyleyen ve randevu alan yapay zekâ asistanını "
