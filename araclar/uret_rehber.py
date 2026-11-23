@@ -201,7 +201,6 @@ print('yazıldı rehber (%d rehber)' % len(REHBERLER))
 for r in REHBERLER:
     govde = '''
   <section class="rh-wrap rh-detay">
-    <a class="rh-geri" href="/rehber/">← Tüm rehberler</a>
     <div class="rh-detay-g">
       <a class="rh-kapak" href="{pdf}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="{kapak}" width="280" height="280" alt=""></a>
       <div class="rh-govde">

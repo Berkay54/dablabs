@@ -104,9 +104,7 @@ ul{list-style:none}
 .rh-govde h2 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 
 /* tek rehber sayfası */
-.rh-detay{padding:28px 0 0}
-.rh-geri{display:inline-block;font-size:14.5px;font-weight:600;color:var(--soluk);text-decoration:none;margin-bottom:22px}
-.rh-geri:hover{color:var(--yazi)}
+.rh-detay{padding:40px 0 0}
 .rh-detay-g{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:center}
 .rh-detay .rh-ust{color:var(--camgobegi);margin-bottom:10px}
 .rh-detay .rh-kapak{border-radius:18px;box-shadow:0 30px 80px rgba(168,85,247,.16)}
@@ -117,7 +115,7 @@ ul{list-style:none}
 .rh-detay .rh-btn{padding-top:22px}
 .rh-detay .rh-b{min-height:54px;padding:0 26px;font-size:17px}
 @media (max-width:760px){
-  .rh-detay{padding-top:12px}
+  .rh-detay{padding-top:24px}
   .rh-detay-g{grid-template-columns:1fr;gap:22px}
   .rh-detay .rh-kapak{max-width:170px;aspect-ratio:1;border-radius:14px}
   .rh-detay .rh-govde{display:flex}
