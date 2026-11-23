@@ -199,19 +199,6 @@ print('yazıldı rehber (%d rehber)' % len(REHBERLER))
 
 # ---- tek rehber sayfaları: /rehber/<slug>/ ----
 for r in REHBERLER:
-    digerleri = [d for d in REHBERLER if d is not r]
-    diger = ''
-    if digerleri:
-        diger = '''
-  <section class="rh-wrap rh-diger" aria-labelledby="h-diger">
-    <h2 id="h-diger">Diğer rehberler</h2>
-    <ul>%s
-    </ul>
-    <a class="rh-tumu" href="/rehber/">Tüm rehberler →</a>
-  </section>''' % ''.join('''
-      <li><a href="{sayfa}"><img src="{kapak}" width="64" height="64" alt="" loading="lazy"><span><strong>{baslik}</strong><small>{etiket}</small></span></a></li>'''.format(
-            sayfa=d['sayfa_url'], kapak=d['kapak'], baslik=esc(d['baslik']), etiket=esc(' · '.join(d['etiketler'])))
-            for d in digerleri)
     govde = '''
   <section class="rh-wrap rh-detay">
     <a class="rh-geri" href="/rehber/">← Tüm rehberler</a>
@@ -227,9 +214,8 @@ for r in REHBERLER:
       </div>
     </div>
   </section>
-{yardim}
-{diger}'''.format(pdf=r['pdf'], kapak=r['kapak'], baslik=esc(r['baslik']), ozet=esc(r['ozet']),
-                  etiket=etiket_html(r), meta=r['meta'], btn=butonlar(r), yardim=YARDIM, diger=diger)
+{yardim}'''.format(pdf=r['pdf'], kapak=r['kapak'], baslik=esc(r['baslik']), ozet=esc(r['ozet']),
+                  etiket=etiket_html(r), meta=r['meta'], btn=butonlar(r), yardim=YARDIM)
     url = SITE + r['sayfa_url']
     ld = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'BreadcrumbList', 'itemListElement': [
