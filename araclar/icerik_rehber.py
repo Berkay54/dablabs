@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'whatsapp-asistan',
+        'baslik': 'Claude ile WhatsApp asistanı',
+        'ozet': "Müşteri mesajlarına senin yerine cevap veren, fiyat söyleyen ve randevu alan yapay zekâ asistanını "
+                "Claude Code ve Kapso ile kur. Maliyetler, numara bağlama ve esnafa satarken dikkat edilecekler de içinde.",
+        'etiketler': ['WhatsApp', 'Claude Code', 'Otomasyon'],
+        'tarih': '2026-11-23',
+    },
+    {
         'slug': 'claude-mem',
         'baslik': "claude-mem: Claude'a kalıcı hafıza",
         'ozet': "Claude Code'un oturumlar arasında her şeyi unutmasını bitiren ücretsiz eklentiyi kur. "
