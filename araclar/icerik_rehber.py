@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'voicestudio',
+        'baslik': 'VoiceStudio: Sesini ücretsiz klonla',
+        'ozet': "ElevenLabs'in yaptığı ses klonlama, dublaj, yazıya dökme ve sesli kitap işlerini ücretsiz ve kendi "
+                "bilgisayarında yapan açık kaynak programı kur. Windows, Mac ve Linux kurulumu ile ilk klon adımları içinde.",
+        'etiketler': ['Ses', 'Yapay Zekâ', 'Açık Kaynak'],
+        'tarih': '2026-11-24',
+    },
+    {
         'slug': 'hiring-panel',
         'baslik': "Hiring Panel: CV'ni 7 Claude'a reddettir",
         'ozet': "CV'ni ve iş ilanını yedi farklı değerlendirici Claude'a okutan, hataları tek listede toplayıp CV'ni "
