@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'career-ops',
+        'baslik': "Career-Ops: Claude senin yerine iş arıyor",
+        'ozet': "Şirketlerin kariyer sayfalarını tarayıp her ilanı CV'nle puanlayan ve CV'ni ilana göre yeniden yazan "
+                "ücretsiz sistemi kur. Yapımcısı bununla 740 ilan değerlendirip iş teklifi aldı.",
+        'etiketler': ['Claude Code', 'İş arama', 'CV'],
+        'tarih': '2026-11-25',
+    },
+    {
         'slug': 'voicestudio',
         'baslik': 'VoiceStudio: Sesini ücretsiz klonla',
         'ozet': "ElevenLabs'in yaptığı ses klonlama, dublaj, yazıya dökme ve sesli kitap işlerini ücretsiz ve kendi "
