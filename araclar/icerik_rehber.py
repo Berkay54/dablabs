@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'openmontage',
+        'baslik': 'OpenMontage: Tek cümleyle video yap',
+        'ozet': "Claude Code'a tek cümle yazarak araştırma, senaryo, seslendirme, altyazı, müzik ve kurgusu hazır video "
+                "ürettiren açık kaynak sistemi kur. Windows, Mac ve Linux kurulumu ile ücretsiz ve ücretli seçenekler içinde.",
+        'etiketler': ['Video', 'Claude Code', 'Açık Kaynak'],
+        'tarih': '2026-11-25',
+    },
+    {
         'slug': 'career-ops',
         'baslik': "Career-Ops: Claude senin yerine iş arıyor",
         'ozet': "Şirketlerin kariyer sayfalarını tarayıp her ilanı CV'nle puanlayan ve CV'ni ilana göre yeniden yazan "
