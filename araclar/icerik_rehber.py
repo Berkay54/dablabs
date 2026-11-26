@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'prompts-chat',
+        'baslik': 'prompts.chat: Prompt yazmaya gerek yok',
+        'ozet': "Binlerce hazır ve denenmiş promptun toplandığı ücretsiz, açık kaynak kütüphaneyi kullan ve Claude'a bağla. "
+                "Claude Code, Claude uygulaması ve Cursor kurulumu ile boş yerleri doldurma ipuçları içinde.",
+        'etiketler': ['Prompt', 'Claude', 'Açık Kaynak'],
+        'tarih': '2026-11-26',
+    },
+    {
         'slug': 'openmontage',
         'baslik': 'OpenMontage: Tek cümleyle video yap',
         'ozet': "Claude Code'a tek cümle yazarak araştırma, senaryo, seslendirme, altyazı, müzik ve kurgusu hazır video "
