@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'notebooklm',
+        'baslik': 'NotebookLM + Claude: PDF\'i podcast yap',
+        'ozet': "Google'ın ücretsiz aracı NotebookLM'i Claude Code'a bağla; belgelerini Türkçe podcast'e, düzenlenebilir "
+                "PowerPoint sunuma, sınav sorularına ve zihin haritasına çevir. Kolay ve elle kurulum ile örnek komutlar içinde.",
+        'etiketler': ['NotebookLM', 'Claude Code', 'Açık Kaynak'],
+        'tarih': '2026-11-28',
+    },
+    {
         'slug': 'prompts-chat',
         'baslik': 'prompts.chat: Prompt yazmaya gerek yok',
         'ozet': "Binlerce hazır ve denenmiş promptun toplandığı ücretsiz, açık kaynak kütüphaneyi kullan ve Claude'a bağla. "
