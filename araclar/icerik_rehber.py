@@ -11,6 +11,14 @@ DM/otomasyon linki: https://dablabs.net/rehber/<slug>/  (yayına çıktıktan so
 
 REHBERLER = [
     {
+        'slug': 'graphify',
+        'baslik': "Graphify: Claude limitin bitmesin",
+        'ozet': "Projendeki kodları bir grafiğe çevirip Claude Code'un her mesajda bütün dosyaları baştan okumasını önleyen ücretsiz eklentiyi kur. "
+                "Kolay ve elle kurulum, kullanım komutları ve tasarrufun gerçekte ne kadar olduğu içinde.",
+        'etiketler': ['Claude Code', 'Token', 'Açık Kaynak'],
+        'tarih': '2026-11-28',
+    },
+    {
         'slug': 'notebooklm',
         'baslik': 'NotebookLM + Claude: PDF\'i podcast yap',
         'ozet': "Google'ın ücretsiz aracı NotebookLM'i Claude Code'a bağla; belgelerini Türkçe podcast'e, düzenlenebilir "
